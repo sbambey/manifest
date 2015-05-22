@@ -16,6 +16,7 @@ gem 'friendly_id'
 #gem 'will_paginate'
 #gem 'will_paginate-bootstrap'
 gem 'sitemap_generator'
+gem 'time_difference'
 
 group :development, :test do
   gem 'byebug'
