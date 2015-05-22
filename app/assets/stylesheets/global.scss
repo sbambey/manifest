@@ -1,0 +1,49 @@
+/* Header */
+.navbar-default {
+	background-color: $dark-background;
+	border-radius:none !important;
+	-moz-border-radius: 0 !important;
+  -webkit-border-radius: 0 !important;
+  border:0;
+  margin:0;
+
+  .navbar-brand {
+  	color: #FFF;
+  	font-size: 38px;
+  	font-weight: 900;
+  	margin-right: 40px;
+  	&:hover, &:focus {
+  		color: #FFF;
+  	}
+  }
+
+  .navbar-nav > li > a {
+  	color: #FFF;
+  	font-size: 16px;
+  	&:hover, &:focus {
+  		color: #FFF;
+  	}
+  }
+}
+
+.sub-header {
+	background-image: image-url("header1.png");
+	background-size: cover;
+	height:150px;
+	color: #FFF;
+	margin-bottom: 20px;
+	display: table;
+  text-align: center;
+  width:100%;
+
+  > .sub-header-title {
+  	display: table-cell;
+    vertical-align: middle;
+    font-size: 70px;
+  }
+}
+
+/* Typography */
+h1 {
+	font-weight: 900;
+}
