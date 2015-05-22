@@ -1,8 +1,16 @@
 .missions {
+
+	.sub-title {
+		font-size: 19px;
+		font-weight: 300;
+		line-height: 1.4;
+		margin-bottom: 20px;
+	}
+
 	.mission-tile {
 		max-height:250px;
 		background: $light-background;
-		margin-top: 20px;
+		margin-bottom: 40px;
 
 		.mission-header {
 			> div {
@@ -35,8 +43,11 @@
 			padding-top: 10px;
 			padding-bottom: 10px;
 
-			p.lead {
+			p.lead:not(:last-of-type) {
 				margin-bottom: 5px;
+			}
+			p.lead:last-of-type {
+				margin-bottom:0;
 			}
 		}
 
