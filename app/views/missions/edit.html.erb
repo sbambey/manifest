@@ -1,41 +1,6 @@
 <div class="container">
 	<h1 class="text-center">Edit Mission</h1>
 	<div class="col-xs-12 col-sm-6 col-sm-offset-3">
-		<%= form_for @mission do |f| %>
-			<%= render "shared/text_field", f: f, attribute: :number, args: {} %>
-			<%= render "shared/text_field", f: f, attribute: :name, args: {} %>
-							
-			<div class="form-group">
-				<%= f.label :launch_time %>
-				<%= f.datetime_select :launch_time, default: Time.now %> EST
-			</div>
-
-			<div id="wmd-button-bar-description-teaser"></div>
-			<%= render "shared/text_area", f: f, attribute: :teaser, args: { placeholder: "Teaser", field_class: "wmd-input form-control new-mission-teaser",
-          field_id: "wmd-input-description-teaser", label_class: "sr-only" } %>
-
-      <div id="wmd-button-bar-description-body"></div>
-			<%= render "shared/text_area", f: f, attribute: :body, args: { placeholder: "Body", field_class: "wmd-input form-control new-mission-body",
-          field_id: "wmd-input-description-body", label_class: "sr-only" } %>
-
-      <%= render "shared/text_field", f: f, attribute: :coverage, args: {} %>
-
-      <div class="checkbox">
-    		<label>
-    			<%= f.check_box :launched %> Launched?
-    		</label>
-    	</div>
-
-      <div class="checkbox">
-    		<label>
-    			<%= f.check_box :published %> Publish?
-    		</label>
-    	</div>
-
-    	<%= f.hidden_field :provider, value: "1" %>
-
-    	<%= f.submit class: "btn btn-primary" %>
-
-		<% end %>
+		<%= render "mission_form", mission: @mission %>
 	</div>
 </div>

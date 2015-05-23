@@ -2,11 +2,11 @@ class MissionsController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show]
 
 	def index
-		@missions = Mission.published.upcoming
+		@missions = Mission.published.upcoming.order(number: :asc)
 	end
 
 	def completed
-		@missions = Mission.published.completed
+		@missions = Mission.published.completed.order(number: :desc)
 	end
 
 	def new
@@ -32,7 +32,7 @@ class MissionsController < ApplicationController
 		@mission = Mission.find(params[:id])
 		if @mission.update_attributes(mission_params)
 			flash[:success] = "Mission updated successfully."
-			redirect_to @mission
+			redirect_to root_path
 		else
 			flash[:danger] = "Could not update mission."
 			render 'edit'
