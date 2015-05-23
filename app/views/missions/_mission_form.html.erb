@@ -4,7 +4,7 @@
 					
 	<div class="form-group">
 		<%= f.label :launch_time %>
-		<%= f.datetime_select :launch_time, default: Time.now, start_year: 1960 %> UTC
+		<%= f.datetime_select :launch_time, default: Time.now, include_seconds: true, start_year: 1960 %> UTC
 	</div>
 
 	<div id="wmd-button-bar-description-teaser"></div>
@@ -17,11 +17,10 @@
 
   <%= render "shared/text_field", f: f, attribute: :coverage, args: {} %>
 
-  <div class="checkbox">
-		<label>
-			<%= f.check_box :launched %> Launched?
-		</label>
-	</div>
+  <div id="wmd-button-bar-description-notes"></div>
+	<%= render "shared/text_area", f: f, attribute: :notes, args: { placeholder: "Notes", field_class: "wmd-input form-control new-mission-notes",
+      field_id: "wmd-input-description-notes", label_class: "sr-only" } %>
+
   <div class="checkbox">
 		<label>
 			<%= f.check_box :published %> Publish?

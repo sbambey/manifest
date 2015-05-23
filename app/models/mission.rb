@@ -10,11 +10,11 @@
 #  body        :text
 #  coverage    :text
 #  published   :boolean
-#  launched    :boolean
 #  user_id     :integer
 #  provider_id :integer
 #  created_at  :timestamp withou not null
 #  updated_at  :timestamp withou not null
+#  notes       :text
 #
 
 class Mission < ActiveRecord::Base
@@ -23,6 +23,15 @@ class Mission < ActiveRecord::Base
 
 	scope :published, -> { where(published: true) }
 
-	scope :upcoming, -> { where("launch_time >= ?", Time.now+2.hours) }
-	scope :completed, -> { where("launch_time < ?", Time.now+2.hours) }
+	scope :upcoming, -> { where("launch_time >= ?", Time.now-LAUNCH_CUTOFF) }
+	scope :completed, -> { where("launch_time < ?", Time.now-LAUNCH_CUTOFF) }
+
+	def launched?
+		launch_time < (Time.now-LAUNCH_CUTOFF)
+	end
+
+	private 
+
+	LAUNCH_CUTOFF = 2.hours
+	
 end

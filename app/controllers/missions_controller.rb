@@ -1,5 +1,5 @@
 class MissionsController < ApplicationController
-	before_action :authenticate_user!, except: [:index, :show]
+	before_action :authenticate_user!, except: [:index, :completed, :show]
 
 	def index
 		@missions = Mission.published.upcoming.order(number: :asc)
@@ -32,7 +32,11 @@ class MissionsController < ApplicationController
 		@mission = Mission.find(params[:id])
 		if @mission.update_attributes(mission_params)
 			flash[:success] = "Mission updated successfully."
-			redirect_to root_path
+			if @mission.launched?
+				redirect_to completed_missions_path
+			else
+				redirect_to root_path
+			end
 		else
 			flash[:danger] = "Could not update mission."
 			render 'edit'
@@ -42,6 +46,6 @@ class MissionsController < ApplicationController
 	private
 
 	def mission_params
-		params.require(:mission).permit(:number, :name, :launch_time, :teaser, :body, :launched, :published, :coverage, :provider_id)
+		params.require(:mission).permit(:number, :name, :launch_time, :teaser, :body, :launched, :published, :coverage, :notes, :provider_id)
   end
 end

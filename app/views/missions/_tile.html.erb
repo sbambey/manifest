@@ -3,9 +3,12 @@
 		<div class="mission-number"><h2><%= mission.number %></h2></div>
 		<div class="mission-title"><h2>
 			<%= mission.name %>
+			<span class="float-right">
 			<% if user_signed_in? %>
 				<%= link_to "Edit", edit_mission_path(mission), class: "btn btn-default btn-sm btn-mission" %>
 			<% end %>
+			<%= mission.launch_time.strftime("%H:%M:%S %Z") if !mission.launched? %>
+		</span>
 		</h2></div>
 		<div class="mission-date"><h2><%= mission.launch_time.strftime('%-d %b %Y') %></h2></div>
 	</div>
@@ -13,16 +16,18 @@
 	<div class="row mission-body">
 		<div class="col-xs-12">
 			<%= markdown(mission.teaser) %>
-			<p class="lead"><a href="#">Read More</a></p>
+			<!--<p class="lead"><a href="#">Read More</a></p>-->
 		</div>
 	</div>
 
-	<% if !defined?(completed) %>
 	<div class="row mission-footer">
 		<div class="col-xs-12">
-			Time to launch: <%= time_diff(mission.launch_time) %> | 
-			<%= link_to "Check back for launch coverage", mission.coverage %>
+			<% if mission.launched? %>
+			Launched at: <%= mission.launch_time.strftime("%H:%M:%S %Z") %>
+			<% else %>
+			Time to Launch: <%= time_diff(mission.launch_time) %> | 
+			<%= link_to "Check back for launch coverage", mission.coverage %><% end %>
+			<%= markdown_line(mission.notes) %>
 		</div>
 	</div>
-	<% end %>
 </div>

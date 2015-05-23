@@ -37,7 +37,7 @@
 				background-color: $dark-background;
 				color: #fff;
 				.btn-mission {
-					float:right;
+					margin-top: -5px;
 				}
 			}
 
@@ -84,5 +84,9 @@
 
 	.new-mission-body {
 		height:250px;
+	}
+
+	.new-mission-notes {
+		height:50px;
 	}
 }

@@ -10,11 +10,11 @@
 #  body        :text
 #  coverage    :text
 #  published   :boolean
-#  launched    :boolean
 #  user_id     :integer
 #  provider_id :integer
 #  created_at  :timestamp withou not null
 #  updated_at  :timestamp withou not null
+#  notes       :text
 #
 
 require 'rails_helper'
