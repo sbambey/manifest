@@ -17,10 +17,12 @@
 		</div>
 	</div>
 
+	<% if !defined?(completed) %>
 	<div class="row mission-footer">
 		<div class="col-xs-12">
 			Time to launch: <%= time_diff(mission.launch_time) %> | 
 			<%= link_to "Check back for launch coverage", mission.coverage %>
 		</div>
 	</div>
+	<% end %>
 </div>
