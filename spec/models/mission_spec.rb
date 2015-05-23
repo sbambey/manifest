@@ -1,3 +1,22 @@
+# == Schema Information
+#
+# Table name: missions
+#
+#  id          :integer          not null, primary key
+#  number      :integer
+#  name        :text
+#  launch_time :timestamp withou
+#  teaser      :text
+#  body        :text
+#  coverage    :text
+#  published   :boolean
+#  launched    :boolean
+#  user_id     :integer
+#  provider_id :integer
+#  created_at  :timestamp withou not null
+#  updated_at  :timestamp withou not null
+#
+
 require 'rails_helper'
 
 RSpec.describe Mission, type: :model do

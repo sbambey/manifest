@@ -24,6 +24,12 @@
   		color: #FFF;
   	}
   }
+  .navbar-text {
+  	color: #ccc;
+	}
+	.btn-navbar {
+		margin-top:10px;
+	}
 }
 
 .sub-header {
@@ -42,6 +48,17 @@
     font-size: 70px;
   }
 }
+
+.footer {
+  margin-top: 40px;
+  background-color: $dark-background;
+  .footer-text {
+    color: #ccc;
+    font-size: 16px;
+    margin:15px 0 16px 0;
+  }
+}
+
 
 /* Typography */
 h1 {

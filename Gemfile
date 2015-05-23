@@ -12,11 +12,15 @@ gem 'pg'
 gem 'bootstrap-sass'
 #gem 'autoprefixer-rails'
 gem 'friendly_id'
-#gem 'devise'
+gem 'devise'
 #gem 'will_paginate'
 #gem 'will_paginate-bootstrap'
 gem 'sitemap_generator'
 gem 'time_difference'
+gem 'redcarpet'
+gem 'pagedown-bootstrap-rails'
+gem 'font-awesome-rails'
+
 
 group :development, :test do
   gem 'byebug'

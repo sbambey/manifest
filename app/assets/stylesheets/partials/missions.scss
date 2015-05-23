@@ -5,6 +5,11 @@
 		font-weight: 300;
 		line-height: 1.4;
 		margin-bottom: 20px;
+
+		.active {
+			color: #1c588c;
+			font-weight: 500;
+		}
 	}
 
 	.mission-tile {
@@ -31,6 +36,9 @@
 				flex-grow: 1;
 				background-color: $dark-background;
 				color: #fff;
+				.btn-mission {
+					float:right;
+				}
 			}
 
 			.mission-date {
@@ -43,11 +51,16 @@
 			padding-top: 10px;
 			padding-bottom: 10px;
 
-			p.lead:not(:last-of-type) {
-				margin-bottom: 5px;
-			}
-			p.lead:last-of-type {
-				margin-bottom:0;
+			p {
+				font-size: 21px;
+				font-weight: 300;
+  			line-height: 1.4;
+				&:not(:last-of-type) {
+					margin-bottom: 5px;
+				}
+				&:last-of-type {
+					margin-bottom:0;
+				}
 			}
 		}
 
@@ -63,5 +76,13 @@
   			
   		}
 		}
+	}
+
+	.new-mission-teaser {
+		height:150px;
+	}
+
+	.new-mission-body {
+		height:250px;
 	}
 }

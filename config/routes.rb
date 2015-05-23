@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
-  resources :missions
+  devise_for :users
+  resources :missions do
+  	get 'completed', on: :collection
+  end
   root 'missions#index'
 end
