@@ -22,7 +22,7 @@
 				height:40px;
 				padding:4px 15px 0 15px;
 
-				h2 {
+				h2, h3 {
 					margin:0;
 				}
 			}
@@ -37,7 +37,15 @@
 				background-color: $dark-background;
 				color: #fff;
 				.btn-mission {
-					margin-top: -5px;
+					margin-top: -6px;
+				}
+			}
+
+			.mission-time {
+				background-color: $dark-background;
+				color: #fff;
+				h3 {
+					line-height: 1.4;
 				}
 			}
 
@@ -71,10 +79,6 @@
   		background-color: #d9d9d9;
   		padding-top:5px;
   		padding-bottom: 5px;
-
-  		a {
-  			
-  		}
 		}
 	}
 

@@ -3,13 +3,13 @@
 		<div class="mission-number"><h2><%= mission.number %></h2></div>
 		<div class="mission-title"><h2>
 			<%= mission.name %>
-			<span class="float-right">
-			<% if user_signed_in? %>
-				<%= link_to "Edit", edit_mission_path(mission), class: "btn btn-default btn-sm btn-mission" %>
-			<% end %>
-			<%= mission.launch_time.strftime("%H:%M:%S %Z") if !mission.launched? %>
-		</span>
+			<div class="float-right">
+				<% if user_signed_in? %>
+					<%= link_to "Edit", edit_mission_path(mission), class: "btn btn-default btn-sm btn-mission" %>
+				<% end %>
+			</div>
 		</h2></div>
+		<div class="mission-time"><h3><%= mission.launch_time.strftime("%H:%M:%S %Z") if !mission.launched? %></h3></div>
 		<div class="mission-date"><h2><%= mission.launch_time.strftime('%-d %b %Y') %></h2></div>
 	</div>
 
