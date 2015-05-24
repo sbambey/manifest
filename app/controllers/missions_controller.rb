@@ -17,7 +17,11 @@ class MissionsController < ApplicationController
 		@mission = current_user.missions.new(mission_params)
 		if @mission.save
 			flash[:success] = "Mission created successfully."
-			redirect_to root_path
+			if @mission.outside_launch_window?
+				redirect_to completed_missions_path
+			else
+				redirect_to root_path
+			end
 		else
 			flash[:danger] = "Could not create mission."
 			render 'new'
@@ -46,7 +50,12 @@ class MissionsController < ApplicationController
 	private
 
 	def mission_params
-		p = params.require(:mission).permit(:number, :name, :launch_time, :launch_date, :net, :teaser, :body, :launched, :published, :coverage, :notes, :provider_id)
+		p = params.require(:mission).permit(:number, :name, :launch_time, :net, :teaser, :body, :launched, :published, :coverage, :notes, :provider_id)
+  	if !p['launch_time(1i)'].blank?
+  		p['launch_date(1i)'] = p['launch_time(1i)']
+  		p['launch_date(2i)'] = p['launch_time(2i)']
+  		p['launch_date(3i)'] = p['launch_time(3i)']
+  	end
   	if p['launch_time(4i)'].blank?
 			p['launch_time(1i)'] = ''
 			p['launch_time(2i)'] = ''

@@ -1,15 +1,16 @@
 <%= form_for mission do |f| %>
 	<%= render "shared/text_field", f: f, attribute: :number, args: {} %>
 	<%= render "shared/text_field", f: f, attribute: :name, args: {} %>
-					
-	<div class="form-group">
-		<%= f.label :launch_date %>
-		<%= f.date_select :launch_date, default: Date.today, start_year: 1960, include_blank: true %>
-	</div>
 
 	<div class="form-group">
 		<%= f.label :launch_time %>
 		<%= f.datetime_select :launch_time, include_seconds: true, include_blank: true %> UTC
+	</div>
+
+	<div class="checkbox">
+		<label>
+			<%= f.check_box :net %> NET?
+		</label>
 	</div>
 
 	<div id="wmd-button-bar-description-teaser"></div>

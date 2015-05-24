@@ -10,7 +10,7 @@
 			</div>
 		</h2></div>
 		<div class="mission-time"><h3>
-			<%= mission.launch_time.strftime("%H:%M:%S %Z") if !mission.launch_time.nil? && !mission.launched? %>
+			<%= "#{"NET " if mission.net?}#{mission.launch_time.strftime("%H:%M:%S %Z")}" if !mission.launch_time.nil? && !mission.launched? %>
 		</h3></div>
 		<div class="mission-date"><h2><%= mission.launch_date.strftime('%-d %b %Y') %></h2></div>
 	</div>
@@ -27,7 +27,7 @@
 			<% if mission.launched? %>
 			Launched at: <%= mission.launch_time.strftime("%H:%M:%S %Z") %>
 			<% else %>
-			Time to Launch: <%= time_diff(mission.launch_date, mission.launch_time) %> | 
+			<%= "Estimated " if mission.net? %>Time to Launch: <%= time_diff(mission.launch_date, mission.launch_time) %> | 
 			<%= link_to "Check back for launch coverage", mission.coverage %>
 			<% end %>
 			<%= markdown_line(mission.notes) %>
