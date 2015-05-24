@@ -10,7 +10,7 @@
 			</div>
 		</h2></div>
 		<div class="mission-time"><h3>
-			<%= mission.launch_time.strftime("%H:%M:%S %Z") if !mission.launch_time.nil? %>
+			<%= mission.launch_time.strftime("%H:%M:%S %Z") if !mission.launch_time.nil? && !mission.launched? %>
 		</h3></div>
 		<div class="mission-date"><h2><%= mission.launch_date.strftime('%-d %b %Y') %></h2></div>
 	</div>
