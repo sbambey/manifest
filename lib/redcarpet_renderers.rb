@@ -46,8 +46,22 @@ module Redcarpet
         " "
       end
 
+      def link(link, title, alt_text)
+        "<a target=\"_blank\" href=\"#{link}\">#{alt_text}</a>"
+      end
+
+      def autolink(link, link_type)
+        "<a target=\"_blank\" href=\"#{link}\">#{link}</a>"
+      end
+
       def postprocess(document)
         document.gsub("\n", ' ').strip
+      end
+    end
+
+    class HTMLTargetBlankRenderer < HTML
+      def initialize(extensions = {})
+        super extensions.merge(link_attributes: { target: "_blank" })
       end
     end
   end

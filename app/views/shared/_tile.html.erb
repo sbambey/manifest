@@ -30,7 +30,7 @@
 			Launched at: <%= mission.launch_time.strftime("%H:%M:%S %Z") %>
 			<% else %>
 			<%= "Estimated " if mission.net? %>Time to Launch: <%= time_diff(mission.launch_date, mission.launch_time) %> | 
-			<%= link_to "Check back for launch coverage", mission.coverage %>
+			<%= link_to "Check back for launch coverage", mission.coverage, target: '_blank' %>
 			<% end %>
 			<%= markdown_line(mission.notes) %>
 		</div>
