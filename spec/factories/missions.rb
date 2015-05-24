@@ -15,6 +15,8 @@
 #  created_at  :timestamp withou not null
 #  updated_at  :timestamp withou not null
 #  notes       :text
+#  launch_date :date
+#  net         :boolean
 #
 
 FactoryGirl.define do

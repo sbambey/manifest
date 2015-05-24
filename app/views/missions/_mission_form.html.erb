@@ -3,8 +3,13 @@
 	<%= render "shared/text_field", f: f, attribute: :name, args: {} %>
 					
 	<div class="form-group">
+		<%= f.label :launch_date %>
+		<%= f.date_select :launch_date, default: Date.today, start_year: 1960, include_blank: true %>
+	</div>
+
+	<div class="form-group">
 		<%= f.label :launch_time %>
-		<%= f.datetime_select :launch_time, default: Time.now, include_seconds: true, start_year: 1960 %> UTC
+		<%= f.datetime_select :launch_time, include_seconds: true, include_blank: true %> UTC
 	</div>
 
 	<div id="wmd-button-bar-description-teaser"></div>

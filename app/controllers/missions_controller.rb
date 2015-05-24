@@ -32,10 +32,10 @@ class MissionsController < ApplicationController
 		@mission = Mission.find(params[:id])
 		if @mission.update_attributes(mission_params)
 			flash[:success] = "Mission updated successfully."
-			if @mission.launched?
-				redirect_to completed_missions_path
-			else
+			if @mission.within_launch_window?
 				redirect_to root_path
+			else
+				redirect_to completed_missions_path
 			end
 		else
 			flash[:danger] = "Could not update mission."
@@ -46,6 +46,12 @@ class MissionsController < ApplicationController
 	private
 
 	def mission_params
-		params.require(:mission).permit(:number, :name, :launch_time, :teaser, :body, :launched, :published, :coverage, :notes, :provider_id)
+		p = params.require(:mission).permit(:number, :name, :launch_time, :launch_date, :net, :teaser, :body, :launched, :published, :coverage, :notes, :provider_id)
+  	if p['launch_time(4i)'].blank?
+			p['launch_time(1i)'] = ''
+			p['launch_time(2i)'] = ''
+			p['launch_time(3i)'] = ''
+		end
+		return p
   end
 end
