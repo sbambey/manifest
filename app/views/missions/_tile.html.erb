@@ -24,7 +24,7 @@
 
 	<div class="row mission-footer">
 		<div class="col-xs-12">
-			<% if mission.within_launch_window? %>
+			<% if mission.launched? %>
 			Launched at: <%= mission.launch_time.strftime("%H:%M:%S %Z") %>
 			<% else %>
 			Time to Launch: <%= time_diff(mission.launch_date, mission.launch_time) %> | 

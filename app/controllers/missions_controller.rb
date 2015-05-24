@@ -32,10 +32,10 @@ class MissionsController < ApplicationController
 		@mission = Mission.find(params[:id])
 		if @mission.update_attributes(mission_params)
 			flash[:success] = "Mission updated successfully."
-			if @mission.within_launch_window?
-				redirect_to root_path
-			else
+			if @mission.outside_launch_window?
 				redirect_to completed_missions_path
+			else
+				redirect_to root_path
 			end
 		else
 			flash[:danger] = "Could not update mission."
