@@ -20,7 +20,8 @@ gem 'time_difference'
 gem 'redcarpet'
 gem 'pagedown-bootstrap-rails'
 gem 'font-awesome-rails'
-
+gem 'paperclip'
+gem 'aws-sdk', '< 2.0'
 
 group :development, :test do
   gem 'byebug'

@@ -5,18 +5,19 @@
 #  id          :integer          not null, primary key
 #  number      :integer
 #  name        :text
-#  launch_time :timestamp withou
+#  launch_time :datetime
 #  teaser      :text
 #  body        :text
 #  coverage    :text
 #  published   :boolean
 #  user_id     :integer
 #  provider_id :integer
-#  created_at  :timestamp withou not null
-#  updated_at  :timestamp withou not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
 #  notes       :text
 #  launch_date :date
 #  net         :boolean
+#  slug        :string
 #
 
 require 'rails_helper'

@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :missions do
-  	get 'completed', on: :collection
+  resources :missions, only: [:new, :create, :edit, :update]
+  resources :providers, only: [:show, :new, :create, :edit, :update] do
+  	get 'completed', on: :member
   end
-  root 'missions#index'
+  root 'providers#show', id: 'spacex'
 end

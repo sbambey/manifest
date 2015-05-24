@@ -33,6 +33,6 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-<div class="sub-header">
-  <h1 class="sub-header-title">SpaceX</h1>
+<div class="sub-header" style="background-image: url(<%= Provider.first.banner.url %>)">
+  <h1 class="sub-header-title"><%= image_tag Provider.first.logo.url(:medium) %></h1>
 </div>

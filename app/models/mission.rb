@@ -5,21 +5,26 @@
 #  id          :integer          not null, primary key
 #  number      :integer
 #  name        :text
-#  launch_time :timestamp withou
+#  launch_time :datetime
 #  teaser      :text
 #  body        :text
 #  coverage    :text
 #  published   :boolean
 #  user_id     :integer
 #  provider_id :integer
-#  created_at  :timestamp withou not null
-#  updated_at  :timestamp withou not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
 #  notes       :text
 #  launch_date :date
 #  net         :boolean
+#  slug        :string
 #
 
 class Mission < ActiveRecord::Base
+	extend FriendlyId
+
+	friendly_id :slug_candidates, use: [:slugged, :history]
+
 	belongs_to :provider
 	belongs_to :user
 
@@ -37,6 +42,17 @@ class Mission < ActiveRecord::Base
 	def outside_launch_window?
 		!launch_time.nil? && launch_time < (Time.zone.now-LAUNCH_CUTOFF) && launch_date <= Date.today
 	end
+
+	def should_generate_new_friendly_id?
+  	true
+  end
+
+  def slug_candidates
+  	[
+  		[:name],
+  		[:name, :number]
+  	]
+  end
 
 	private 
 

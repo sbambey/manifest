@@ -1,13 +1,5 @@
 class MissionsController < ApplicationController
-	before_action :authenticate_user!, except: [:index, :completed, :show]
-
-	def index
-		@missions = Mission.published.upcoming.order(number: :asc)
-	end
-
-	def completed
-		@missions = Mission.published.completed.order(number: :desc)
-	end
+	before_action :authenticate_user!
 
 	def new
 		@mission = Mission.new
@@ -18,7 +10,7 @@ class MissionsController < ApplicationController
 		if @mission.save
 			flash[:success] = "Mission created successfully."
 			if @mission.outside_launch_window?
-				redirect_to completed_missions_path
+				redirect_to completed_provider_path(@mission.provider)
 			else
 				redirect_to root_path
 			end
@@ -29,15 +21,15 @@ class MissionsController < ApplicationController
 	end
 
 	def edit
-		@mission = Mission.find(params[:id])
+		@mission = Mission.friendly.find(params[:id])
 	end
 
 	def update
-		@mission = Mission.find(params[:id])
+		@mission = Mission.friendly.find(params[:id])
 		if @mission.update_attributes(mission_params)
 			flash[:success] = "Mission updated successfully."
 			if @mission.outside_launch_window?
-				redirect_to completed_missions_path
+				redirect_to completed_provider_path(@mission.provider)
 			else
 				redirect_to root_path
 			end
