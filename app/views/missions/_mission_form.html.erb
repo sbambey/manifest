@@ -4,7 +4,7 @@
 
 	<div class="form-group">
 		<%= f.label :launch_time %>
-		<%= f.datetime_select :launch_time, include_seconds: true, include_blank: true %> UTC
+		<%= f.datetime_select :launch_time, start_year: 1980, include_seconds: true, include_blank: true %> UTC
 	</div>
 
 	<div class="checkbox">
