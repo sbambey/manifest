@@ -9,9 +9,11 @@
 				<% end %>
 			</div>
 		</h2></div>
+		<% if !mission.launch_time.nil? && !mission.launched? %>
 		<div class="mission-time"><h3>
-			<%= "#{"NET " if mission.net?}#{mission.launch_time.strftime("%H:%M:%S %Z")}" if !mission.launch_time.nil? && !mission.launched? %>
+			<%= "#{"NET " if mission.net?}#{mission.launch_time.strftime("%H:%M:%S %Z")}" %>
 		</h3></div>
+		<% end %>
 		<div class="mission-date"><h2><%= mission.launch_date.strftime('%-d %b %Y') %></h2></div>
 	</div>
 

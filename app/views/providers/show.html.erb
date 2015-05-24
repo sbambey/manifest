@@ -4,4 +4,6 @@
 	<% @missions.each do |mission| %>
 		<%= render "shared/tile", mission: mission %>
 	<% end %>
+
+	<% if user_signed_in? %><%= link_to "Add Mission", new_mission_path, class: "btn btn-primary" %><% end %>
 </div>
