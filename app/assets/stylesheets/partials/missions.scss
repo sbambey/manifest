@@ -1,14 +1,51 @@
 .missions {
+	.mission-page {
+		margin-top: 30px;
 
-	.new-mission-teaser {
-		height:150px;
+		.btn-edit {
+			margin-bottom: 20px;
+		}
+
+		.mission-header {
+			position:relative;
+			.mission-number {
+				position: absolute;
+				top: 0;
+				right: 0;
+				padding: 10px 15px;
+				background-color: $red-background;
+	      color: #fff;
+	      h2 {
+	      	margin: 0;
+	      }
+			}
+			.mission-logo {
+				padding:15px;
+				background-color: $medium-background;
+			}
+			.mission-title {
+				background-color: $medium-light-background;
+				flex-grow: 1;
+				padding-left: 20px;
+				padding-right: 10px;
+			}
+		}
+
+		.mission-body {
+			padding: 0 20px;
+			margin-bottom: 20px;
+			background-color: $light-background;
+		}
 	}
-
-	.new-mission-body {
+	.new-mission-teaser {
 		height:250px;
 	}
 
+	.new-mission-body {
+		height:500px;
+	}
+
 	.new-mission-notes {
-		height:50px;
+		height:150px;
 	}
 }

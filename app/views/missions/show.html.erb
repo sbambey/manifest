@@ -1,0 +1,24 @@
+<div class="container mission-page">
+	<% if user_signed_in? %><div class="row">
+	<%= link_to 'Edit', edit_mission_path(@mission), class: 'btn btn-primary btn-edit' %></div>
+	<% end %>
+	<div class="row flex-container mission-header">
+		<div class="mission-number">
+			<h2><%= @mission.number %></h2>
+		</div>
+		<%= image_tag @mission.logo.url(:medium), class: "mission-logo" %>
+		<div class="mission-title">
+			<h1><%= @mission.name %></h1>
+			<h2>SLC-40, Cape Canaveral Air Force Station, Florida</h2>
+			<h2><%= "Launch #{"no earlier than " if @mission.net?}#{@mission.launch_date.strftime("%-d %b %Y")}#{@mission.launch_time.strftime("%H:%M:%S %Z") if !@mission.launch_time.nil?}" %></h2>
+		</div>
+	</div>
+
+	<div class="row mission-body">
+		<div class="col-xs-12">
+			<%= markdown(@mission.body) %>
+		</div>
+	</div>
+
+	<div class="row"><%= link_to 'Back to Manifest', provider_path(@mission.provider), class: 'btn btn-primary' %></div>
+</div>

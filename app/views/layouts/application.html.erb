@@ -10,7 +10,9 @@
 <body class="<%= controller.controller_name %>">
 <%= render 'layouts/header' %>
 <%= render 'layouts/flash_messages' %>
-<%= yield %>
+<div class="main-content">
+	<%= yield %>
+</div>
 <%= render 'layouts/footer' %>
 <% if Rails.env.production? %>
 	<%= render "layouts/google_analytics_snippet" %>

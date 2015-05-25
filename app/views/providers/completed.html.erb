@@ -2,7 +2,7 @@
 	<%= render "manifest_header" %>
 
 	<% @missions.each do |mission| %>
-		<%= render "shared/tile", mission: mission, completed: true %>
+		<%= render "tile", mission: mission, completed: true %>
 	<% end %>
 
 	<% if user_signed_in? %><%= link_to "Add Mission", new_mission_path, class: "btn btn-primary" %><% end %>

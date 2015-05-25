@@ -4,12 +4,76 @@
 		font-weight: 300;
 		line-height: 1.4;
 		margin-bottom: 20px;
-
 		.active {
 			color: #1c588c;
 			font-weight: 500;
 		}
 	}
 
-	
+	/* Mission tile */
+	.mission-tile {
+	  background: $light-background;
+	  margin-bottom: 40px;
+
+	  .mission-header {
+	    > div {
+	      height:40px;
+	      padding:4px 15px 0 15px;
+
+	      h2, h3 {
+	        margin:0;
+	      }
+	    }
+
+	    .mission-number {
+	      background-color: $light-background;
+	      color: $dark-background;
+	    }
+
+	    .mission-title {
+	      flex-grow: 1;
+	      background-color: $dark-background;
+	      color: #fff;
+	      .btn-mission {
+	        margin-top: -6px;
+	      }
+	    }
+
+	    .mission-time {
+	      background-color: $dark-background;
+	      color: #fff;
+	      h3 {
+	        line-height: 1.4;
+	      }
+	    }
+
+	    .mission-date {
+	      background-color: $red-background;
+	      color: #fff;
+	    }
+	  }
+
+	  .mission-body {
+	    padding-top: 10px;
+	    padding-bottom: 10px;
+
+	    p {
+	      &:not(:last-of-type) {
+	        margin-bottom: 5px;
+	      }
+	      &:last-of-type {
+	        margin-bottom:0;
+	      }
+	    }
+	  }
+
+	  .mission-footer {
+	    font-size: 19px;
+	    font-weight: 300;
+	    line-height: 1.4;
+	    background-color: $medium-background;
+	    padding-top:5px;
+	    padding-bottom: 5px;
+	  }
+	}
 }

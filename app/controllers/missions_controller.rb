@@ -1,5 +1,9 @@
 class MissionsController < ApplicationController
-	before_action :authenticate_user!
+	before_action :authenticate_user!, except: [:show]
+
+	def show
+		@mission = Mission.friendly.find(params[:id])
+	end
 
 	def new
 		@mission = Mission.new
@@ -42,7 +46,7 @@ class MissionsController < ApplicationController
 	private
 
 	def mission_params
-		p = params.require(:mission).permit(:number, :name, :launch_time, :net, :teaser, :body, :launched, :published, :coverage, :notes, :provider_id)
+		p = params.require(:mission).permit(:number, :name, :launch_time, :net, :teaser, :body, :launched, :published, :coverage, :notes, :logo, :provider_id)
   	if !p['launch_time(1i)'].blank?
   		p['launch_date(1i)'] = p['launch_time(1i)']
   		p['launch_date(2i)'] = p['launch_time(2i)']
