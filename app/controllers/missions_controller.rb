@@ -13,11 +13,7 @@ class MissionsController < ApplicationController
 		@mission = current_user.missions.new(mission_params)
 		if @mission.save
 			flash[:success] = "Mission created successfully."
-			if @mission.outside_launch_window?
-				redirect_to completed_provider_path(@mission.provider)
-			else
-				redirect_to root_path
-			end
+			redirect_to @mission
 		else
 			flash[:danger] = "Could not create mission."
 			render 'new'
@@ -32,11 +28,7 @@ class MissionsController < ApplicationController
 		@mission = Mission.friendly.find(params[:id])
 		if @mission.update_attributes(mission_params)
 			flash[:success] = "Mission updated successfully."
-			if @mission.outside_launch_window?
-				redirect_to completed_provider_path(@mission.provider)
-			else
-				redirect_to root_path
-			end
+			redirect_to @mission
 		else
 			flash[:danger] = "Could not update mission."
 			render 'edit'
