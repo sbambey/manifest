@@ -6,7 +6,7 @@
 		<div class="mission-number">
 			<h2><%= @mission.number %></h2>
 		</div>
-		<%= image_tag @mission.logo.url(:medium), class: "mission-logo" %>
+		<%= image_tag(@mission.logo.url(:medium), class: "mission-logo") if @mission.logo.present? %>
 		<div class="mission-title">
 			<h1><%= @mission.name %></h1>
 			<h2>SLC-40, Cape Canaveral Air Force Station, Florida</h2>
