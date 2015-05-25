@@ -22,6 +22,7 @@ gem 'pagedown-bootstrap-rails'
 gem 'font-awesome-rails'
 gem 'paperclip'
 gem 'aws-sdk', '< 2.0'
+gem 'fog', '1.23.0'
 
 group :development, :test do
   gem 'byebug'
