@@ -11,6 +11,6 @@ SitemapGenerator::Sitemap.sitemaps_path = 'sitemaps/'
 
 SitemapGenerator::Sitemap.create do
   add root_path, changefreq: 'daily', priority: 1.0
-  add completed_provider_path(id: 'spacex'), changefreq, priority: 1.0
+  add completed_provider_path(id: 'spacex'), changefreq: 'daily', priority: 0.8
 end
 

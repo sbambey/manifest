@@ -4,6 +4,7 @@
   <title>Manifest</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= favicon_link_tag 'favicon.ico' %>
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= controller.controller_name %>">
@@ -11,6 +12,8 @@
 <%= render 'layouts/flash_messages' %>
 <%= yield %>
 <%= render 'layouts/footer' %>
-
+<% if Rails.env.production? %>
+	<%= render "layouts/google_analytics_snippet" %>
+<% end %>
 </body>
 </html>
