@@ -34,6 +34,13 @@
 	      flex-grow: 1;
 	      background-color: $dark-background;
 	      color: #fff;
+	      a.mission-link {
+	      	color: #fff;
+	      	&:hover, &:focus {
+	      		color: #fff;
+	      		text-decoration: none;
+	      	}
+	      }
 	      .btn-mission {
 	        margin-top: -6px;
 	      }

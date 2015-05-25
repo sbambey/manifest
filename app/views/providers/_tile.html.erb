@@ -2,7 +2,7 @@
 	<div class="row flex-container mission-header">
 		<div class="mission-number"><h2><%= mission.number %></h2></div>
 		<div class="mission-title"><h2>
-			<%= mission.name %>
+			<%= link_to mission.name, mission_path(mission), class: "mission-link" %>
 			<div class="float-right">
 				<% if user_signed_in? %>
 					<%= link_to "Edit", edit_mission_path(mission), class: "btn btn-default btn-sm btn-mission" %>
