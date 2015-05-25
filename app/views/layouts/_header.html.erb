@@ -16,7 +16,7 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
         <ul class="nav navbar-nav">
-          <li><%= link_to "SpaceX", root_path %></li>
+          <!--<li><%= link_to "SpaceX", root_path %></li>-->
           <!--<li><%= link_to "United Launch Alliance", root_path %></li>
           <li><%= link_to "Arianespace", root_path %></li>-->
         </ul>
@@ -34,5 +34,5 @@
 </nav>
 
 <div class="sub-header" style="background-image: url(<%= Provider.first.banner.url %>)">
-  <h1 class="sub-header-title"><%= image_tag Provider.first.logo.url(:medium) %></h1>
+  <h1 class="sub-header-title"><%= link_to image_tag(Provider.first.logo.url(:medium)), root_path %></h1>
 </div>
