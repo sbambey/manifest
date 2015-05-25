@@ -39,7 +39,7 @@ class Mission < ActiveRecord::Base
 
 	has_attached_file :logo, styles: {
     small: '200x100>',
-    medium: '300x200>'
+    medium: '300x'
   }
   validates_attachment_content_type :logo, :content_type => /\Aimage\/.*\Z/
 

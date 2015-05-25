@@ -27,6 +27,7 @@ class Provider < ActiveRecord::Base
 
 	has_attached_file :logo, styles: {
     thumb: '200x100>',
+    small: '300x',
     medium: '500x300>'
   }
   validates_attachment_content_type :logo, :content_type => /\Aimage\/.*\Z/
