@@ -3,3 +3,6 @@
 # To ban all spiders from the entire site uncomment the next two lines:
 # User-agent: *
 # Disallow: /
+User-Agent: *
+Disallow: /users/sign_in
+Sitemap: http://www.manifest.space/sitemap.xml.gz
