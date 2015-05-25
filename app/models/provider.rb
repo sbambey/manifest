@@ -26,9 +26,9 @@ class Provider < ActiveRecord::Base
 	has_many :missions
 
 	has_attached_file :logo, styles: {
-    thumb: '200x100>',
+    thumb: '200x',
     small: '300x',
-    medium: '500x300>'
+    medium: '500x'
   }
   validates_attachment_content_type :logo, :content_type => /\Aimage\/.*\Z/
 

@@ -38,8 +38,8 @@ class Mission < ActiveRecord::Base
 	scope :completed, -> { where("launch_time IS NOT NULL AND launch_time < ? AND launch_date <= ?", Time.zone.now-LAUNCH_CUTOFF, Date.today) }
 
 	has_attached_file :logo, styles: {
-    small: '200x100>',
-    medium: '300x'
+		thumb: '200x',
+    small: '300x'
   }
   validates_attachment_content_type :logo, :content_type => /\Aimage\/.*\Z/
 

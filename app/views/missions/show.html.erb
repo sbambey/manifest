@@ -8,7 +8,7 @@
 		</div>
 		<div class="mission-logo">
 			<% if @mission.logo.present? %>
-				<%= image_tag @mission.logo.url(:medium) %>
+				<%= image_tag @mission.logo.url(:small) %>
 			<% else %>
 				<%= image_tag @mission.provider.logo.url(:small) %>
 			<% end %>
