@@ -1,12 +1,12 @@
 <div class="container mission-page">
-	<% if user_signed_in? %><div class="row">
-	<%= link_to 'Edit', edit_mission_path(@mission), class: 'btn btn-primary btn-edit' %></div>
+	<% if user_signed_in? %>
+	<%= link_to 'Edit', edit_mission_path(@mission), class: 'btn btn-primary btn-edit' %>
 	<% end %>
-	<div class="row flex-container mission-header">
+	<div class="col-xs-12 flex-container mission-header">
 		<div class="mission-number">
 			<h2><%= @mission.number %></h2>
 		</div>
-		<div class="mission-logo-container">
+		<div class="mission-logo">
 			<% if @mission.logo.present? %>
 				<%= image_tag @mission.logo.url(:medium) %>
 			<% else %>
@@ -21,11 +21,10 @@
 		</div>
 	</div>
 
-	<div class="row mission-body">
-		<div class="col-xs-12">
-			<%= markdown(@mission.body) %>
-		</div>
+	<div class="col-xs-12 mission-body">
+		<%= markdown(@mission.body) %>
 	</div>
 
-	<div class="row"><%= link_to 'Back to Manifest', provider_path(@mission.provider), class: 'btn btn-primary' %></div>
+	<div class="row"><div class="col-xs-12">
+		<%= link_to 'Back to Manifest', provider_path(@mission.provider), class: 'btn btn-primary' %></div></div>
 </div>

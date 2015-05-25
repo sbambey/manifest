@@ -8,6 +8,7 @@
 
 		.mission-header {
 			position:relative;
+			background-color: $medium-light-background;
 			.mission-number {
 				position: absolute;
 				top: 0;
@@ -19,14 +20,14 @@
 	      	margin: 0;
 	      }
 			}
-			.mission-logo-container {
+			.mission-logo {
 				display: flex;
 				align-items: center;
+				margin-left:-15px;
 				padding:15px;
 				background-color: $medium-background;
 			}
 			.mission-title {
-				background-color: $medium-light-background;
 				flex-grow: 1;
 				padding-left: 20px;
 				padding-right: 10px;
