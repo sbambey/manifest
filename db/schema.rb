@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150524211120) do
+ActiveRecord::Schema.define(version: 20150524232822) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,12 +39,16 @@ ActiveRecord::Schema.define(version: 20150524211120) do
     t.boolean  "published"
     t.integer  "user_id"
     t.integer  "provider_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.text     "notes"
     t.date     "launch_date"
     t.boolean  "net"
     t.string   "slug"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
   end
 
   create_table "providers", force: :cascade do |t|

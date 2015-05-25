@@ -25,5 +25,6 @@ module MissionsHelper
 				str << "#{hour_diff} hours, #{minute_diff} minutes"
 			end
 		end
+		return str
 	end
 end

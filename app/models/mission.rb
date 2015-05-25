@@ -2,22 +2,26 @@
 #
 # Table name: missions
 #
-#  id          :integer          not null, primary key
-#  number      :integer
-#  name        :text
-#  launch_time :datetime
-#  teaser      :text
-#  body        :text
-#  coverage    :text
-#  published   :boolean
-#  user_id     :integer
-#  provider_id :integer
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  notes       :text
-#  launch_date :date
-#  net         :boolean
-#  slug        :string
+#  id                :integer          not null, primary key
+#  number            :integer
+#  name              :text
+#  launch_time       :datetime
+#  teaser            :text
+#  body              :text
+#  coverage          :text
+#  published         :boolean
+#  user_id           :integer
+#  provider_id       :integer
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#  notes             :text
+#  launch_date       :date
+#  net               :boolean
+#  slug              :string
+#  logo_file_name    :string
+#  logo_content_type :string
+#  logo_file_size    :integer
+#  logo_updated_at   :datetime
 #
 
 class Mission < ActiveRecord::Base
@@ -32,6 +36,12 @@ class Mission < ActiveRecord::Base
 
 	scope :upcoming, -> { where("launch_time IS NULL OR launch_date > ? OR (launch_time >= ? AND launch_date <= ?)", Date.today, Time.zone.now-LAUNCH_CUTOFF, Date.today) }
 	scope :completed, -> { where("launch_time IS NOT NULL AND launch_time < ? AND launch_date <= ?", Time.zone.now-LAUNCH_CUTOFF, Date.today) }
+
+	has_attached_file :logo, styles: {
+    small: '200x100>',
+    medium: '300x200>'
+  }
+  validates_attachment_content_type :logo, :content_type => /\Aimage\/.*\Z/
 
 	#true when rocket has lifted off
 	def launched?
