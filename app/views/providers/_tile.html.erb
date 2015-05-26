@@ -14,7 +14,7 @@
 			<%= "#{"NET " if mission.net?}#{mission.launch_time.strftime("%H:%M:%S %Z") if !mission.launch_time.nil?}" %>
 		</h3></div>
 		<% end %>
-		<div class="mission-date"><h2><%= mission.launch_date.strftime('%-d %b %Y') %></h2></div>
+		<div class="mission-date"><h2><%= mission.launch_date.present? ? mission.launch_date.strftime('%-d %b %Y') : "TBA" %></h2></div>
 	</div>
 
 	<div class="row mission-body">
