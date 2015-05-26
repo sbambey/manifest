@@ -1,6 +1,7 @@
 <%= form_for mission do |f| %>
 	<%= render "shared/text_field", f: f, attribute: :number, args: {} %>
 	<%= render "shared/text_field", f: f, attribute: :name, args: {} %>
+	<%= render "shared/text_field", f: f, attribute: :launch_location, args: {} %>
 
 	<div class="form-group">
 		<%= f.label :logo %> 

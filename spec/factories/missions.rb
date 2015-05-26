@@ -22,6 +22,7 @@
 #  logo_content_type :string
 #  logo_file_size    :integer
 #  logo_updated_at   :datetime
+#  launch_location   :text
 #
 
 FactoryGirl.define do

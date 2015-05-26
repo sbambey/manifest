@@ -15,7 +15,7 @@
 		</div>
 		<div class="mission-title">
 			<h1><%= @mission.name %></h1>
-			<h3>SLC-40, Cape Canaveral Air Force Station, Florida</h3>
+			<h3><%= @mission.launch_location.present? ? @mission.launch_location : "To be determined" %></h3>
 			<h3>
 				<%= "#{@mission.launched? ? "Launched " : "Launch "} #{"no earlier than " if @mission.net?}#{@mission.launch_date.strftime("%-d %b %Y")}#{", " + @mission.launch_time.strftime("%H:%M:%S %Z") if !@mission.launch_time.nil?}" %></h3>
 		</div>
