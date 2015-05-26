@@ -32,6 +32,7 @@ module ApplicationHelper
 	def time_diff(date, time)
 		time_now = Time.zone.now
 		date_today = Time.current.to_date
+		str = ""
 		if !date.nil? && time.nil?
 			day_diff = (date-date_today).to_i
 			if day_diff > 0
@@ -55,8 +56,6 @@ module ApplicationHelper
 				str = "#{minute_diff} #{minute_diff > 1 ? 'minutes' : 'minute' }, 
 				#{second_diff} #{second_diff > 1 ? 'seconds' : 'second'}"
 			end
-		else
-			str = "To Be Announced"
 		end
 		return str
 	end
