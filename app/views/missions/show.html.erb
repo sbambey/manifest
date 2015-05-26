@@ -1,7 +1,9 @@
-<div class="container mission-page">
-	<% if user_signed_in? %>
-	<%= link_to 'Edit', edit_mission_path(@mission), class: 'btn btn-primary btn-edit' %>
+<div class="container">
+<% if user_signed_in? %>
+	<%= link_to 'Edit', edit_mission_path(@mission), class: 'btn btn-primary' %>
 	<% end %>
+</div>
+<div class="container mission-page">
 	<div class="col-xs-12 flex-container mission-header">
 		<div class="mission-number">
 			<h2><%= @mission.number %></h2>
