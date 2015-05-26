@@ -13,7 +13,7 @@ SitemapGenerator::Sitemap.create do
   add root_path, changefreq: 'daily', priority: 0.9
   add completed_provider_path(id: 'spacex'), changefreq: 'daily', priority: 0.8
   Mission.find_each do |m|
-  	add mission_path(m), priority: 1.0, lastmod: mission.updated_at
+  	add mission_path(m), priority: 1.0, lastmod: m.updated_at
   end
 end
 
