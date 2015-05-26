@@ -23,6 +23,7 @@
 #  logo_file_size    :integer
 #  logo_updated_at   :datetime
 #  launch_location   :text
+#  edit_history      :text
 #
 
 require 'rails_helper'

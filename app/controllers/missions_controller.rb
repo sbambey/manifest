@@ -26,7 +26,7 @@ class MissionsController < ApplicationController
 
 	def update
 		@mission = Mission.friendly.find(params[:id])
-		if @mission.update_attributes(mission_params)
+		if @mission.update_attributes(mission_params.merge(edit_history: @mission.edit_history.unshift("#{current_user.email} at #{Time.zone.now}")))
 			flash[:success] = "Mission updated successfully."
 			redirect_to @mission
 		else

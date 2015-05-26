@@ -23,12 +23,15 @@
 #  logo_file_size    :integer
 #  logo_updated_at   :datetime
 #  launch_location   :text
+#  edit_history      :text
 #
 
 class Mission < ActiveRecord::Base
 	extend FriendlyId
 
 	friendly_id :slug_candidates, use: [:slugged, :history]
+
+	serialize :edit_history, Array
 
 	belongs_to :provider
 	belongs_to :user

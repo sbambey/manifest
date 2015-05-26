@@ -3,4 +3,12 @@
 	<div class="col-xs-12 col-sm-8 col-sm-offset-2">
 		<%= render "mission_form", mission: @mission %>
 	</div>
+	<div class="col-xs-12 col-sm-8 col-sm-offset-2">
+		<h2>Past 5 edits</h2>
+		<ul>
+			<% @mission.edit_history[0..4].each do |h| %>
+			<li><%= h %></li>
+			<% end %>
+		</ul>
+	</div>
 </div>
