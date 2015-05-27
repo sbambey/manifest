@@ -38,7 +38,7 @@ class MissionsController < ApplicationController
 	private
 
 	def mission_params
-		p = params.require(:mission).permit(:number, :name, :launch_location, :launch_time, :net, :teaser, :body, :launched, :published, :coverage, :notes, :logo, :provider_id)
+		p = params.require(:mission).permit(:number, :name, :launch_location, :launch_time, :net, :teaser, :body, :published, :notes, :logo, :provider_id)
   	if !p['launch_time(1i)'].blank?
   		p['launch_date(1i)'] = p['launch_time(1i)']
   		p['launch_date(2i)'] = p['launch_time(2i)']

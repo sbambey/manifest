@@ -8,7 +8,6 @@
 #  launch_time       :datetime
 #  teaser            :text
 #  body              :text
-#  coverage          :text
 #  published         :boolean
 #  user_id           :integer
 #  provider_id       :integer
