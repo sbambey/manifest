@@ -26,6 +26,12 @@
   }
   .navbar-text {
   	color: #ccc;
+    a {
+      color: #fff;
+      &:hover, &:focus {
+        color: #fff;
+      }
+    }
 	}
 	.btn-navbar {
 		margin-top:10px;
