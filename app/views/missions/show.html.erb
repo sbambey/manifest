@@ -22,7 +22,7 @@
 				<%= "#{@mission.launched? ? "Launched " : "Launch "} #{"no earlier than " if @mission.net?}" +
 				"#{@mission.launch_date.present? ? @mission.launch_date.strftime("%-d %b %Y") : "time to be announced"}" +
 				"#{", " + @mission.launch_time.strftime("%H:%M:%S %Z") if !@mission.launch_time.nil?}" +
-				"#{(" (" + time_diff(@mission.launch_date, @mission.launch_time) + ")") if @mission.launch_date.present?}" %></h3>
+				"#{(" (" + time_diff(@mission.launch_date, @mission.launch_time) + ")") if @mission.launch_date.present? && !@mission.launched?}" %></h3>
 		</div>
 	</div>
 
