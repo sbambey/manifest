@@ -1,0 +1,40 @@
+<% @missions.each do |mission| %>
+	<div class="col-xs-12 mission-tile">
+		<div class="row flex-container mission-header">
+			<div class="mission-number"><h2><%= mission.number %></h2></div>
+			<div class="mission-title"><h2>
+				<%= link_to mission.name, mission_path(mission), class: "mission-link" %>
+				<div class="float-right">
+					<% if user_signed_in? %>
+						<%= link_to "Edit", edit_mission_path(mission), class: "btn btn-default btn-sm btn-mission" %>
+					<% end %>
+				</div>
+			</h2></div>
+			<% if !mission.launched? %>
+			<div class="mission-time"><h3>
+				<%= "#{"NET " if mission.net?}#{mission.launch_time.strftime("%H:%M:%S %Z") if !mission.launch_time.nil?}" %>
+			</h3></div>
+			<% end %>
+			<div class="mission-date"><h2><%= mission.launch_date.present? ? mission.launch_date.strftime('%-d %b %Y') : "TBA" %></h2></div>
+		</div>
+
+		<div class="row mission-body">
+			<div class="col-xs-12">
+				<%= markdown(mission.teaser) %>
+				<p class="lead"><%= link_to "Read More", mission_path(mission) %></p>
+			</div>
+		</div>
+
+		<div class="row mission-footer">
+			<div class="col-xs-12">
+				<% if mission.launched? %>
+				Launched at: <%= mission.launch_time.strftime("%H:%M:%S %Z") %>
+				<% else %>
+				<%= "Estimated " if mission.net? %>Time to Launch: 
+				<%= mission.launch_date.present? ? time_diff(mission.launch_date, mission.launch_time) : "To Be Announced" %>
+				<% end %>
+				<%= markdown_line(mission.notes) %>
+			</div>
+		</div>
+	</div>
+<% end %>

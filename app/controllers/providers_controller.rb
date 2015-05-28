@@ -2,11 +2,19 @@ class ProvidersController < ApplicationController
 	before_action :authenticate_user!, except: [:show, :completed]
 
 	def show
-		@missions = Provider.friendly.find(params[:id]).missions.published.upcoming.order(number: :asc)
+		@missions = Provider.friendly.find(params[:id]).missions.published.upcoming.order(number: :asc).paginate(per_page: 10, page: params[:page])
+		respond_to do |format|
+      format.js { render "missions.js.erb" }
+      format.html
+    end
 	end
 
 	def completed
-		@missions = Provider.friendly.find(params[:id]).missions.published.completed.order(number: :desc)
+		@missions = Provider.friendly.find(params[:id]).missions.published.completed.order(number: :desc).paginate(per_page: 10, page: params[:page])
+		respond_to do |format|
+      format.js { render "missions.js.erb" }
+      format.html
+    end
 	end
 
 	def new

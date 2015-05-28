@@ -60,6 +60,17 @@ module ApplicationHelper
 		return str
 	end
 
+	def bts_will_paginate(relation, args = {})
+  	if args[:endless]
+  		("<div class='text-center' id='add-records'>" +
+  			"<a href='#'><div>Show more</div><span class='glyphicon glyphicon-chevron-down' aria-hidden='true'></span></a>" +
+  			"<div class='hidden'>#{will_paginate relation, renderer: BootstrapPagination::Rails}</div>" +
+  		"</div>").html_safe
+  	else
+  		"<div class='text-center'>#{will_paginate relation, renderer: BootstrapPagination::Rails}</div>".html_safe
+  	end
+  end
+
 	def markdown(text)
     renderer = Redcarpet::Render::HTMLTargetBlankRenderer.new(hard_wrap: true)
     options = {

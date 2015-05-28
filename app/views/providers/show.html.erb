@@ -1,9 +1,12 @@
 <div class="container">
 	<%= render "manifest_header" %>
 	
-	<% @missions.each do |mission| %>
-		<%= render "tile", mission: mission %>
-	<% end %>
+	<%= render "tiles" %>
+
+	<div id="added-tiles"></div>
+
+	<%= bts_will_paginate(@missions, {endless: true}) if @missions.next_page %>
 
 	<% if user_signed_in? %><%= link_to "Add Mission", new_mission_path, class: "btn btn-primary" %><% end %>
+	
 </div>
