@@ -61,7 +61,7 @@ module ApplicationHelper
 	end
 
 	def markdown(text)
-    renderer = Redcarpet::Render::HTMLTargetBlankRenderer.new(hard_wrap: true, filter_html: true)
+    renderer = Redcarpet::Render::HTMLTargetBlankRenderer.new(hard_wrap: true)
     options = {
       autolink: true,
       no_intra_emphasis: true,
@@ -75,8 +75,7 @@ module ApplicationHelper
 
   def markdown_line(text)
     renderer = Redcarpet::Render::HTMLWithoutBlockElements.new({
-      :filter_html => true,
-      :hard_wrap => true
+      hard_wrap: true
     })
     markdown = Redcarpet::Markdown.new(renderer, {
       :autolink => true,
