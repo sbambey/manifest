@@ -16,7 +16,7 @@
 	/* Mission tile */
 	.mission-tile {
 	  background: $light-background;
-	  margin-bottom: 40px;
+	  margin-bottom: 50px;
 
 	  .mission-header {
 	    > div {
@@ -29,7 +29,7 @@
 	    }
 
 	    .mission-number {
-	      background-color: $light-background;
+	      background-color: $orange-background;
 	      color: $dark-background;
 	    }
 
@@ -64,17 +64,25 @@
 	  }
 
 	  .mission-body {
-	    padding-top: 10px;
-	    padding-bottom: 10px;
-
-	    p {
-	      &:not(:last-of-type) {
-	        margin-bottom: 5px;
-	      }
-	      &:last-of-type {
-	        margin-bottom:0;
-	      }
+	    padding:10px;
+	    .mission-logo {
+	    	float: left;
+	    	margin-right: 15px;
+	    	max-height: 160px;
+	    	max-width: 160px;
 	    }
+
+    	.mission-body-text {
+    		overflow: hidden;
+    		p {
+		      &:not(:last-of-type) {
+		        margin-bottom: 5px;
+		      }
+		      &:last-of-type {
+		        margin-bottom:0;
+		      }
+		    }
+		  }
 	  }
 
 	  .mission-footer {

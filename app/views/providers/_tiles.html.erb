@@ -19,7 +19,8 @@
 		</div>
 
 		<div class="row mission-body">
-			<div class="col-xs-12">
+			<% if mission.logo.present? %><%= image_tag mission.logo.url(:small), class: "mission-logo" %><% end %>
+			<div class="mission-body-text">
 				<%= markdown(mission.teaser) %>
 				<p class="lead"><%= link_to "Read More", mission_path(mission) %></p>
 			</div>
