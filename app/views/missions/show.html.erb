@@ -6,9 +6,6 @@
 </div>
 <div class="container mission-page">
 	<div class="col-xs-12 flex-container mission-header">
-		<div class="mission-number">
-			<h2><%= @mission.number %></h2>
-		</div>
 		<div class="mission-logo">
 			<% if @mission.logo.present? %>
 				<%= image_tag @mission.logo.url(:small) %>
@@ -17,7 +14,12 @@
 			<% end %>
 		</div>
 		<div class="mission-title">
-			<h1><%= @mission.name %></h1>
+			<div class="top-title">
+				<h1><%= @mission.name %></h1>
+				<div class="mission-number">
+					<h2><%= @mission.number %></h2>
+				</div>
+			</div>
 			<h3><%= @mission.launch_location.present? ? @mission.launch_location : "Location to be determined" %></h3>
 			<h3>
 				<%= "#{@mission.launched? ? "Launched " : "Launch "} #{"no earlier than " if @mission.net?}" +
