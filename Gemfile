@@ -22,6 +22,7 @@ gem 'font-awesome-rails'
 gem 'paperclip'
 gem 'aws-sdk', '< 2.0'
 gem 'fog', '1.23.0'
+gem 'meta-tags'
 
 group :development, :test do
   gem 'byebug'

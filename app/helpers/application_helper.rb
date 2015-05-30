@@ -1,4 +1,12 @@
 module ApplicationHelper
+	def full_title(title)
+		if title.present?
+			"Manifest | #{title}"
+		else
+			"Manifest"
+		end
+	end
+
 	def flash_messages
 		return "" if flash.empty?
 		flash.each do |key, value|

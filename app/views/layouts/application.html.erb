@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Manifest</title>
+  <title><%= full_title(yield(:title)) %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= favicon_link_tag 'favicon.ico' %>
+  <%= display_meta_tags description: "A comprehensive launch manifest of completed and upcoming SpaceX missions." %>
+  <%= display_meta_tags keywords: %w[manifest space launch spacex ses9 ses-9 crs7 crs-7 falcon falcon9 falcon heavy dragon capsule pad abort] %>
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= controller.controller_name %>">

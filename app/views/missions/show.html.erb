@@ -1,3 +1,4 @@
+<% provide(:title, @mission.name) %>
 <div class="container">
 <% if user_signed_in? %>
 	<%= link_to 'Edit', edit_mission_path(@mission), class: 'btn btn-primary' %>
@@ -31,5 +32,10 @@
 	</div>
 
 	<div class="row"><div class="col-xs-12">
-		<%= link_to 'Back to Manifest', provider_path(@mission.provider), class: 'btn btn-primary' %></div></div>
+		<% if @mission.outside_launch_window? %>
+			<%= link_to 'Back to Manifest', completed_provider_path(@mission.provider), class: 'btn btn-primary' %>
+		<% else %>
+			<%= link_to 'Back to Manifest', provider_path(@mission.provider), class: 'btn btn-primary' %>
+		<% end %>
+		</div></div>
 </div>
