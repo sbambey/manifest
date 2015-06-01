@@ -42,30 +42,64 @@
 		}
 
 		.mission-body {
-			padding-bottom: 10px;
+			padding-bottom: 20px;
 			margin-bottom: 20px;
 			background-color: $light-background;
 			img {
 				margin: 0 10px;
 			}
+
+			.image-container {
+				margin-top: 20px;
+				border: 3px solid $medium-dark-background;
+				h4 {
+					margin: 0;
+					padding:10px;
+					background-color: $orange-background;
+					color: $dark-background;
+				}
+				.image-body {
+					display: flex;
+					padding:10px 10px 10px 0;
+					.image-tile {
+						margin-left:10px;
+						text-align: center;
+						font-size: 11px;
+						i {
+							font-weight: 600;
+						}
+						img.small-image {
+							display: block;
+							height: 150px;
+							margin: 0;
+						}
+					}
+				}
+			}
 		}
 	}
 
-	#barc-container {
-		.barc-iframe {
-			max-width: 1200px;
+	.mission-form {
+		.new-mission-teaser {
+			height:250px;
 		}
-	}
 
-	.new-mission-teaser {
-		height:250px;
-	}
+		.new-mission-body {
+			height:500px;
+		}
 
-	.new-mission-body {
-		height:500px;
-	}
+		.new-mission-notes {
+			height:150px;
+		}
 
-	.new-mission-notes {
-		height:150px;
+		.add-image-tile {
+			padding: 10px;
+			border: 2px solid $medium-background;
+			margin-bottom: 15px;
+			.extra-small-image {
+				display: inline-block;
+				height:50px;
+			}
+		}
 	}
 }

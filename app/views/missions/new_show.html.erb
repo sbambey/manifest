@@ -1,0 +1,57 @@
+<% provide(:title, @mission.name) %>
+<div class="container">
+<% if user_signed_in? %>
+	<%= link_to 'Edit', edit_mission_path(@mission), class: 'btn btn-primary' %>
+	<% end %>
+</div>
+<div class="container mission-page">
+	<div class="col-xs-12 flex-container mission-header">
+		<div class="mission-logo">
+			<% if @mission.logo.present? %>
+				<%= image_tag @mission.logo.url(:small) %>
+			<% else %>
+				<%= image_tag @mission.provider.logo.url(:small) %>
+			<% end %>
+		</div>
+		<div class="mission-title">
+			<div class="top-title">
+				<h1><%= @mission.name %></h1>
+				<div class="mission-number">
+					<h2><%= @mission.number %></h2>
+				</div>
+			</div>
+			<h3><%= @mission.launch_location.present? ? @mission.launch_location : "Location to be determined" %></h3>
+			<h3>
+				<%= "#{@mission.launched? ? "Launched " : "Launch "} #{"no earlier than " if @mission.net?}" +
+				"#{@mission.launch_date.present? ? @mission.launch_date.strftime("%-d %b %Y") : "time to be announced"}" +
+				"#{", " + @mission.launch_time.strftime("%H:%M:%S %Z") if !@mission.launch_time.nil?}" +
+				"#{(" (" + time_diff(@mission.launch_date, @mission.launch_time) + ")") if @mission.launch_date.present? && !@mission.launched?}" %></h3>
+		</div>
+	</div>
+
+	<div class="col-xs-12 mission-body">
+		<%= markdown(@mission.body) %>
+
+		<% if @mission.attachments.present? %>
+		<div class="image-container">
+			<h4>Image Gallery</h4>
+			<div class="image-body">
+				<% @mission.attachments.order(id: :asc).each do |a| %>
+					<div class="image-tile">
+						<%= link_to image_tag(a.file.url(:thumb), class: "small-image"), a.file.url %>
+						Source: <i><%= a.source_link.present? ? link_to(a.source_name, a.source_link) : a.source_name %></i>
+					</div>
+				<% end %>
+			</div>
+		</div>
+		<% end %>
+	</div>
+
+	<div class="row"><div class="col-xs-12">
+		<% if @mission.outside_launch_window? %>
+			<%= link_to 'Back to Manifest', completed_provider_path(@mission.provider), class: 'btn btn-primary' %>
+		<% else %>
+			<%= link_to 'Back to Manifest', provider_path(@mission.provider), class: 'btn btn-primary' %>
+		<% end %>
+	</div></div>
+</div>

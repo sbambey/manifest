@@ -1,4 +1,4 @@
-<%= form_for mission do |f| %>
+<%= form_for mission, html: { class: "mission-form" } do |f| %>
 	<%= render "shared/text_field", f: f, attribute: :number, args: {label_class: ""} %>
 	<%= render "shared/text_field", f: f, attribute: :name, args: {label_class: ""} %>
 	<%= render "shared/text_field", f: f, attribute: :launch_location, args: {label_class: ""} %>
@@ -42,9 +42,22 @@
 	<%= render "shared/text_area", f: f, attribute: :body, args: { placeholder: "Body", field_class: "wmd-input form-control new-mission-body",
       field_id: "wmd-input-description-body", label_class: "sr-only" } %>
 
-  <div class="checkbox">
+
+  <h4>Image Gallery</h4>
+
+	<%= f.fields_for :attachments do |builder| %>
+		<%= render "attachment_fields", f: builder %>
+	<% end %>
+
+	<%= link_to_add_fields "[+] Add image", f, :attachments %>
+
+	<!--<%= file_field_tag 'attachments[]', type: :file, multiple: true %>-->
+
+	<br><br>
+
+	<div class="checkbox">
 		<label>
-			<%= f.check_box :published %> Publish?
+			<%= f.check_box :published %> Publish mission?
 		</label>
 	</div>
 

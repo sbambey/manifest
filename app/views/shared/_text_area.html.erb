@@ -1,4 +1,4 @@
-<% errors = f.object.errors.full_messages_for(attribute) %>
+<% errors = f.object.errors.full_messages_for(attribute) if f.object %>
 <%= content_tag :div, class: ["form-group", ("has-error has-feedback" if errors.present?)] do %>
 	<%= f.label attribute, "#{args[:label_text] || nil}", class: "#{args[:label_class] || "sr-only"}" %>
 	<%= f.text_area attribute, class: "#{args[:field_class] || "form-control"}", id: "#{args[:field_id] || ""}",

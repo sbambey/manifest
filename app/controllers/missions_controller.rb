@@ -5,6 +5,10 @@ class MissionsController < ApplicationController
 		@mission = Mission.friendly.find(params[:id])
 	end
 
+	def new_show
+		@mission = Mission.friendly.find(params[:id])
+	end
+
 	def new
 		@mission = Mission.new
 	end
@@ -38,7 +42,7 @@ class MissionsController < ApplicationController
 	private
 
 	def mission_params
-		p = params.require(:mission).permit(:number, :name, :launch_location, :launch_time, :net, :teaser, :body, :published, :notes, :logo, :provider_id)
+		p = params.require(:mission).permit(:number, :name, :launch_location, :launch_time, :net, :teaser, :body, :published, :notes, :logo, :provider_id, attachments_attributes: attachments_attributes)
   	if !p['launch_time(1i)'].blank?
   		p['launch_date(1i)'] = p['launch_time(1i)']
   		p['launch_date(2i)'] = p['launch_time(2i)']
@@ -50,5 +54,13 @@ class MissionsController < ApplicationController
 			p['launch_time(3i)'] = ''
 		end
 		return p
+  end
+
+  def attachments_attributes
+  	a = [:file, :description, :source_name, :source_link, :_destroy]
+  	if action_name == "update"
+  		a.unshift(:id)
+  	end
+  	return a
   end
 end
