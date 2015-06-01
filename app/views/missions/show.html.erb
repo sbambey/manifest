@@ -31,6 +31,20 @@
 
 	<div class="col-xs-12 mission-body">
 		<%= markdown(@mission.body) %>
+
+		<% if @mission.attachments.present? %>
+		<div class="image-container">
+			<h4>Image Gallery</h4>
+			<div class="image-body">
+				<% @mission.attachments.order(id: :asc).each do |a| %>
+					<div class="image-tile">
+						<%= link_to image_tag(a.file.url(:thumb), class: "small-image"), a.file.url %>
+						Source: <i><%= a.source_link.present? ? link_to(a.source_name, a.source_link) : a.source_name %></i>
+					</div>
+				<% end %>
+			</div>
+		</div>
+		<% end %>
 	</div>
 
 	<div class="row"><div class="col-xs-12">
@@ -39,5 +53,5 @@
 		<% else %>
 			<%= link_to 'Back to Manifest', provider_path(@mission.provider), class: 'btn btn-primary' %>
 		<% end %>
-		</div></div>
+	</div></div>
 </div>
