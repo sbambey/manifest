@@ -23,4 +23,21 @@ class Attachment < ActiveRecord::Base
   }
 
   do_not_validate_attachment_file_type :file
+
+  ##Image
+
+	def full
+		file.url
+	end
+
+	def thumb
+		file.url(:thumb)
+	end
+
+	def caption
+		caption = ""
+		caption << description if description.present?
+		caption << "#{', ' if description.present?}Source: #{source_name}" if source_name.present?
+		return caption.html_safe
+	end
 end

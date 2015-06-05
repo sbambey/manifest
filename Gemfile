@@ -23,6 +23,7 @@ gem 'paperclip'
 gem 'aws-sdk', '< 2.0'
 gem 'fog', '1.23.0'
 gem 'meta-tags'
+gem 'hermitage'
 
 group :development, :test do
   gem 'byebug'

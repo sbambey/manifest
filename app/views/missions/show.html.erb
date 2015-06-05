@@ -33,17 +33,11 @@
 		<%= markdown(@mission.body) %>
 
 		<% if @mission.attachments.present? %>
-		<div class="image-container">
-			<h4>Image Gallery</h4>
+			<h2>Images</h2>
+
 			<div class="image-body">
-				<% @mission.attachments.order(id: :asc).each do |a| %>
-					<div class="image-tile">
-						<%= link_to image_tag(a.file.url(:thumb), class: "small-image"), a.file.url %>
-						Source: <i><%= a.source_link.present? ? link_to(a.source_name, a.source_link) : a.source_name %></i>
-					</div>
-				<% end %>
+				<%= render_gallery_for @mission.attachments.order(id: :asc), list_tag: :div, item_tag: :div, item_class: :gallery_item, original: 'full', thumbnail: 'thumb', title: 'caption' %>
 			</div>
-		</div>
 		<% end %>
 	</div>
 
