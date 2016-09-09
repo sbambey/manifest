@@ -3,6 +3,8 @@ class MissionsController < ApplicationController
 
 	def show
 		@mission = Mission.friendly.find(params[:id])
+		@mission_headline = wikipedia_service.test
+		@wiki = wikipedia_service
 	end
 
 	def new_show
@@ -42,7 +44,7 @@ class MissionsController < ApplicationController
 	private
 
 	def mission_params
-		p = params.require(:mission).permit(:number, :name, :launch_location, :launch_time, :net, :teaser, :body, :published, :notes, :logo, :provider_id, attachments_attributes: attachments_attributes)
+		p = params.require(:mission).permit(:number, :name, :wikipedia_article, :launch_location, :launch_time, :net, :teaser, :body, :published, :notes, :logo, :provider_id, attachments_attributes: attachments_attributes)
   	if !p['launch_time(1i)'].blank?
   		p['launch_date(1i)'] = p['launch_time(1i)']
   		p['launch_date(2i)'] = p['launch_time(2i)']
@@ -62,5 +64,9 @@ class MissionsController < ApplicationController
   		a.unshift(:id)
   	end
   	return a
+  end
+
+  def wikipedia_service
+  	WikipediaService.new(name: @mission.name)
   end
 end

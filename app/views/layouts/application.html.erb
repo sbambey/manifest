@@ -5,6 +5,9 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= favicon_link_tag 'favicon.ico' %>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<![endif]-->
   <%= display_meta_tags description: "A comprehensive launch manifest of completed and upcoming SpaceX missions." %>
   <%= display_meta_tags keywords: %w[manifest space launch spacex ses9 ses-9 crs7 crs-7 falcon falcon9 falcon heavy dragon capsule pad abort] %>
   <%= csrf_meta_tags %>

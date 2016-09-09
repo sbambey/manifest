@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150531000911) do
+ActiveRecord::Schema.define(version: 20150605224924) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 20150531000911) do
     t.datetime "logo_updated_at"
     t.text     "launch_location"
     t.text     "edit_history",      default: "--- []\n"
+    t.text     "wikipedia_article"
   end
 
   create_table "providers", force: :cascade do |t|

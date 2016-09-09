@@ -17,4 +17,7 @@
 //= require pagedown_bootstrap
 //= require pagedown_init
 //= require turbolinks
+//= require photoswipe/photoswipe
+//= require photoswipe/photoswipe-ui-default
+//= require photoswipe/index
 //= require_tree .

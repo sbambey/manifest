@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby "2.2.2"
+
 gem 'rails', '4.2.0'
 gem 'sass-rails'
 gem 'uglifier'
@@ -21,9 +23,11 @@ gem 'pagedown-bootstrap-rails'
 gem 'font-awesome-rails'
 gem 'paperclip'
 gem 'aws-sdk', '< 2.0'
-gem 'fog', '1.23.0'
+gem 'fog'
 gem 'meta-tags'
 gem 'hermitage'
+gem 'wikipedia-client'
+gem 'photoswipe-rails'
 
 group :development, :test do
   gem 'byebug'

@@ -1,6 +1,7 @@
 <%= form_for mission, html: { class: "mission-form" } do |f| %>
 	<%= render "shared/text_field", f: f, attribute: :number, args: {label_class: ""} %>
 	<%= render "shared/text_field", f: f, attribute: :name, args: {label_class: ""} %>
+	<%= render "shared/text_field", f: f, attribute: :wikipedia_article, args: {label_class: ""} %>
 	<%= render "shared/text_field", f: f, attribute: :launch_location, args: {label_class: ""} %>
 
 	<br>

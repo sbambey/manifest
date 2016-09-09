@@ -23,6 +23,7 @@
 #  logo_updated_at   :datetime
 #  launch_location   :text
 #  edit_history      :text             default([])
+#  wikipedia_article :text
 #
 
 FactoryGirl.define do
